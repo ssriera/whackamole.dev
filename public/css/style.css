@@ -1,0 +1,32 @@
+h1 {
+	color: white;
+	text-align: center;
+	}
+
+body {
+	background-color: brown;
+}
+
+.container {
+	width: 324px;
+	position: relative;
+	border: 1px;
+	margin: auto;
+}
+
+#box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9 {
+  width: 100px;
+  height: 100px;
+  float: left;
+  border: solid;
+  border-color:white;
+}
+
+.active {
+	background-image:url("/images/mole.jpeg");
+}
+
+/*.mole {
+	height: 100px;
+	width: 100px;
+}*/
