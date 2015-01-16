@@ -1,32 +1,78 @@
+@font-face {
+ font-family: "tron";
+ src: url('tr2n-webfont.eot');
+    src: url('tr2n-webfont.eot?#iefix') format('embedded-opentype'),
+         url('tr2n-webfont.woff2') format('woff2'),
+         url('tr2n-webfont.woff') format('woff'),
+         url('tr2n-webfont.ttf') format('truetype'),
+         url('tr2n-webfont.svg#tr2ntr2n') format('svg');
+    font-weight: normal;
+}
+
 h1 {
-	color: white;
+	color: #d0e7f8;
 	text-align: center;
-	}
+	font-family:"tron", sans-serif;
+}
+
+h2 {
+	color: #5b819c;
+	text-align: center;
+	font-family:"tron", sans-serif;
+}
 
 body {
-	background-color: brown;
+	background-image:url("/images/bluegrid.jpg");
+	cursor: url("cursor.gif"), default;
+}
+
+h3 {
+	color: #d0e7f8;
+	font-family:"tron", sans-serif;
+	font-size: 2em;
+	position: absolute;;
+	right: 80px;
+    top: 150px;
+
+}
+
+.score {
+	color: #d0e7f8;
+	/*text-align: right;*/
+	font-family:"tron", sans-serif;
+	font-size: 2em;
+	position: absolute;;
+	right: 20px;
+    top: 150px;
+}
+
+.timer {
+	color: #d0e7f8;
+	text-align: center;
+	font-family:"tron", sans-serif;
+	font-size: 4em;	
+    margin-top: 0px;
+    margin-bottom: 0px;
+
 }
 
 .container {
-	width: 324px;
+	width: 1010px;
 	position: relative;
-	border: 1px;
+	border: .1px;
 	margin: auto;
+	top: 260px;
 }
 
-#box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9 {
-  width: 100px;
+.box {
+  width: 90px;
   height: 100px;
   float: left;
-  border: solid;
-  border-color:white;
+/*  border: dashed;
+  border-color:purple;*/
 }
 
-.active {
-	background-image:url("/images/mole.jpeg");
+.mImage {
+	height: 90px;
+	width: 90px;
 }
-
-/*.mole {
-	height: 100px;
-	width: 100px;
-}*/
