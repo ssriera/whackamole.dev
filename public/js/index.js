@@ -1,76 +1,98 @@
-
-
 $('document').ready(function(){
 
+	var startTimer = 5;
+	var stopTimer = 0;
+	var cdInterval;
+	var score = 0;
+
+	//Keep the images hidden unless its the selected one
+ 	$('.mImage').hide();
+
+
+
+	//Random num from 0 to 9 exclusive
  	function randomNum() {
-		return Math.floor(Math.random() * 9);
+		return Math.floor(Math.random() * 31);
  	}
 
+ 	//Timer function for countdown & bug to appear
+	function Timer() {
+		cdInterval = setInterval(countDown, 1000);
+	}
 
- 	// Generate Random Number
- 	var random = randomNum();
- 	console.log(random);
+	function countDown() {
+		if (startTimer !== 0) {
+			startTimer--;
+			$('.timer').text(startTimer);
+			console.log(startTimer);
+		} else {
+			console.log('the interval cleared')
+			clearInterval(cdInterval);
+			$('.timer').text('');
+			var interval = setInterval(function() {
 
- 	// Define Array of Boxes
- 	var boxes = $('.container').children();
- 	console.log(boxes);
+				var random = randomNum();
+			 	console.log(random);
+			 	// Define Array of Boxes
+			 	var images = $('.mImage');
+			 	console.log(images);
+			 	// Select A Random Box from Array
+			 	var randImg = images[random]
+			 	// Make the bug fade in/out
+			 	$(randImg).fadeIn().delay(800).fadeOut();
+				
+			}, 1000);
+		}
+	}
+	
+	//Play the sound on load
+	audiofn();
 
- 	// Select A Random Box from Array
- 	var box = boxes[random];
- 	console.log(box);
+	//Run the timer function
+	Timer();	
 
- 	// Change chosen box to active
-	$(box).addClass('active'); 		
+	//Play idle sound
+	audioidle();
+	
+ 	// Play sound
+	function audiofn() {
+	    var sound = $("#audio")[0];
 
- 	$('.active').click(function() {
- 		$(this).fadeToggle();
+	    sound.load();
+	    sound.play();
+	}
 
- 	});
+	function audiostrike() {
+	    var sound = $("#strike")[0];
 
+	    sound.load();
+	    sound.play();
+	}
 
+	function audioidle() {
+	    var sound = $("#idle")[0];
 
- 	// function changeBox() {
- 	// 	$('div').click(function(){
- 	// 	$('.container').children.addClass('.active');
- 	// }
+	    sound.load();
+	    sound.play();
+	}
+	
+	// Keep score of bug hits
+	$('.mImage').click(function(){
+		score++;
+		$('.score').text(score);
+		audiostrike();
+		audioidle();
+	});
 
-	// var interval = setInterval(function() {
-	// 	console.log(randomNum());
-	// }, 1000);
+	// Hide the bug after click event
+	$('.mImage').on('click', function() {
+		$(this).hide();
+		console.log('test here');
+	});
 
-	// console.log(random);
+	
+
 });
-// switch (randomNum()) {
-// 	case "0":
-// 		change('#box1');
-// 	break;
-// 	case "1":
-// 		change('#box2');
-// 	break;
-// 	case "2":
-// 		change('#box3');
-// 	break;
-// 	case "3":
-// 		change('#box4');
-// 	break;
-// 	case "4":
-// 		change('#box5');
-// 	break;
-// 	case "5":
-// 		change('#box6');
-// 	break;
-// 	case "6":
-// 		change('#box7');
-// 	break;
-// 	case "7":
-// 		change('#box8');
-// 	break;
-// 	case "8":
-// 		change('#box9');
-// 	break;
-// }
 
 
-
-// });
 
